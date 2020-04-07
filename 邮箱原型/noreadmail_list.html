@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<link href="Css/style.css" rel="stylesheet">
+		<script type="text/javascript">
+		function CheckAll(elementsA,elementsB){
+			if(elementsB.checked ==false){
+				for(j=0;j<elementsA.length;j++){
+					elementsA[j].checked = false;
+				}
+			}else{
+				for(i=0;i<elementsA.length;i++){
+					elementsA[i].checked = true;
+				}
+			}
+		}
+		
+		function checkdel(delid,formname){
+			var flag = false;
+			var id=",";
+				for(i=0;i<delid.length;i++){
+					if(delid[i].checked){
+						flag = true;
+						id+=delid[i].value+",";
+						continue;
+					}
+				}
+				if(!flag){
+					alert("请选择要删除的记录！");
+					return false;
+				}else{
+					if(confirm("确定要删除这些日志信息吗？")){
+					formname.action='deletemail.do?zh=delMail&deleteway=&mailid='+id;
+					formname.submit();
+				}
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<table width="100%" height="530" border="0" align="center"
+			cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+			<tr>
+				<td valign="top" class="tableBorder">
+					<table width="100%" height="100%" border="0" cellpadding="0"
+						cellspacing="0">
+						<tr>
+							<td width="4%" height="33" background="images/main_title.gif">&nbsp;
+								
+							</td>
+							<td width="96%" background="images/main_title.gif"
+								class="word_orange">
+								当前位置：收件箱 &gt;未读邮件&gt;&gt;
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center" valign="top">
+								<!-----------------------主要内容-------------------------------------->
+								&nbsp;
+								<form name="frm" method="post"
+									action="">
+									<table width="95%" border="0" cellpadding="0" cellspacing="1"
+										bgcolor="#DDDDDD">
+										<tr>
+											<td width="20%" height="27" align="center" bgcolor="#FAFAFA">
+												发件人
+											</td>
+											<td width="40%" align="center" bgcolor="#FAFAFA">
+												主题
+											</td>
+											<td width="20%" align="center" bgcolor="#FAFAFA">
+												发送时间
+											</td>
+											<td width="15%" align="center" bgcolor="#FAFAFA">
+												附件
+											</td>
+											<td width="5%" align="center" bgcolor="#FAFAFA">
+												删除
+											</td>
+										</tr>
+										
+
+										<tr>
+											<td height="27" colspan="5" align="center" bgcolor="#FFFFFF">
+												暂无邮件！
+											</td>
+										</tr>
+
+										<tr align="center">
+											<td height="27" bgcolor="#FFFFFF">发件人</td>
+											<td bgcolor="#FFFFFF">
+												<a href="mailinfo.html">1</a>
+											</td>
+											<td align="center" bgcolor="#FFFFFF">2013-05-03</td>
+											<td align="center" bgcolor="#FFFFFF">有</td>
+											<td align="center" bgcolor="#FFFFFF">
+												<input name="delid" type="checkbox" class="noborder"
+													value="${mailInfo.mailId}">
+											</td>
+										</tr>
+										
+										
+									</table>
+									<table width="96%" height="30" border="0" cellpadding="0"
+										cellspacing="0">
+										<tr>
+											<td width="30%">
+												<table width="100%" border="0" cellspacing="0"
+													cellpadding="0">
+													<tr>
+														<td width="5%" height="30" align="left">
+															<input name="checkbox" type="checkbox" class="noborder"
+																onClick="CheckAll(frm.delid,frm.checkbox)">
+														</td>
+														<td width="95%">
+															
+															[全选/反选] [
+															<a style="color: red; cursor: hand;"
+																onClick="checkdel(frm.delid,frm)">删除</a>]
+														</td>
+													</tr>
+												</table>
+											</td>
+											<td width="70%" align="right">&nbsp;
+												</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

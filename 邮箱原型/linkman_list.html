@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<link href="Css/style.css" rel="stylesheet">
+		<script language="javascript" src="JS/function.js"></script>
+		<script language="javascript">
+		function del(para){
+		if(confirm("确定要删除该联系人信息吗？")){
+			window.location.href="deletelinkman.do?zh=delLinkMamn&id="+para;
+		}
+	}
+		</script>
+	</head>
+	<body>
+		<table width="100%" height="530" border="0" align="center"
+			cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+			<tr>
+				<td valign="top" class="tableBorder">
+					<table width="100%" height="100%" border="0" cellpadding="0"
+						cellspacing="0">
+						<tr>
+							<td width="4%" height="33" background="images/main_title.gif">&nbsp;
+								
+							</td>
+							<td width="96%" background="images/main_title.gif"
+								class="word_orange">
+								当前位置：通讯录 &gt; 查看联系人 &gt;&gt;
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center" valign="top">
+								<table width="90%" height="40" border="0" cellpadding="0"
+									cellspacing="0">
+									<tr>
+										<td height="9pt">&nbsp;
+											
+										</td>
+									</tr>
+							
+									
+									
+									<tr id="OpenRep1" >
+										<td colspan="6">
+											<table width="100%" border="0" cellspacing="0"
+												cellpadding="0">
+												<tr>
+													<td height="25" align="center">
+														<table width="95%" border="1" cellspacing="0"
+															cellpadding="0" bordercolor="#F9F9F9">
+
+														
+															<tr onMouseOver="this.style.background='#EEE'"
+																onMouseOut="this.style.background=''" height="25px">
+																<td width="6%" class="tableBorder_b" align="left">
+																	<img src="images/folder.gif" width="16" height="16"
+																		border="0">
+																</td>
+																<td class="tableBorder_b">
+																	姓名
+																</td>
+																<td class="tableBorder_b">
+																	邮箱地址
+																</td>
+																<td class="tableBorder_b" align="center">
+																	生日
+																</td>
+																<td class="tableBorder_b" align="center">
+																	电话
+																</td>
+																<td class="tableBorder_b" align="center">
+																	所属组
+																</td>
+																<td class="tableBorder_b" align="right">
+																	<a href="javascript:del(${linkMan.id})">删除</a>
+																</td>
+															</tr>
+														
+
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+							
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

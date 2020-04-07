@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<link href="Css/style.css" rel="stylesheet">
+</head>
+
+<body>
+		<table width="100%" height="530" border="0" align="center"
+			cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+			<tr>
+
+				<td valign="top" class="tableBorder">
+					<table width="100%" height="100%" border="0" cellpadding="0"
+						cellspacing="0">
+						<tr>
+							<td width="4%" height="33" background="images/main_title.gif">&nbsp;
+								
+							</td>
+							<td width="96%" background="images/main_title.gif"
+								class="word_orange">
+								当前位置：通讯录 &gt; 添加联系人 &gt;&gt;
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center" valign="top">
+								<form name="form1" method="post" action="addlinkmansucce.html">
+									<table width="95%" height="auto" border="0" cellpadding="0"
+										cellspacing="0">
+										<tr>
+											<td align="center">&nbsp;
+												
+											</td>
+											<td>&nbsp;
+												
+											</td>
+										</tr>
+										<tr>
+											<td width="40%" align="right">
+												所&nbsp;&nbsp;属&nbsp;&nbsp;组：
+											</td>
+											<td width="60%" align="left">
+												<select name="linkmantype" style="width: 180px;">
+													
+														
+															<option value="0">家人</option>
+														<option value="0">朋友</option>
+													<option value="0">同学</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td align="right">
+												姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：
+											</td>
+											<td align="left">
+												<input name="linkman" type="text" size="30" id="linkman">
+												*
+											</td>
+										</tr>
+										<tr>
+											<td align="right">
+												E&nbsp;-m&nbsp;a&nbsp;i&nbsp;l：
+											</td>
+											<td align="left">
+												<input name="emailaddress" type="text" id="emailaddress" size="30">
+												*
+											</td>
+										</tr>
+										<tr>
+											<td align="right">
+												生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日：
+											</td>
+											<td align="left">
+												<input name="birthday" type="text" size="30" id="birthday">
+											</td>
+										</tr>
+										<tr>
+											<td align="right">
+												联&nbsp;系&nbsp;电&nbsp;话：											</td>
+											<td align="left">
+												<input name="tel" type="text" id="tel" size="30">
+												<input name="myemail" type="hidden" id="myemail"
+													value="${sessionScope.myemail}">
+											</td>
+										</tr>
+										<tr>
+											<td align="right">&nbsp;
+												
+											</td>
+											<td align="left">
+												<input name="Submit" type="submit" class="btn_grey"
+													value="提交">
+												&nbsp;
+												<input name="Submit2" type="reset" class="btn_grey"
+													value="重置">
+											</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

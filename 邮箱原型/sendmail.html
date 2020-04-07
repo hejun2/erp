@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<link href="Css/style.css" rel="stylesheet">
+<script language="javascript" src="JS/function.js"></script>
+		<link href="Css/style.css" rel="stylesheet">
+		<script language="javascript">
+		function checkform(myform){
+		if(myform.addressee.value==""){
+			alert("收件人地址不能为空！");myform.addressee.focus();return false;
+		}
+		if(!checkemail(myform.addressee.value)){
+			alert("您输入的收件人地址不正确！");myform.addresser.focus();return false;
+		}	
+		if(myform.title.value==""){
+			alert("邮件主题不能为空！");myform.title.focus();return false;
+		}
+		if(oEditor.document.body.innerText==""){
+			alert("邮件内容不能为空！");oEditor.focus();return false;
+		}
+		form1.content.value=oEditor.document.body.innerHTML;
+	}
+	function add(email){
+		if(email!=""){
+			s=sendform.recievepo.value;
+			if(s!=""){		//验证邮箱地址是否正确
+				arrS=s.split(",");	//将邮箱地址分割为数组
+				flag=false;		//标记是否已经添加
+				for(i=0;i<arrS.length;i++){
+					if(arrS[i]==email){	//判断该Email地址是否已经添加
+						flag=true;
+						break;				//跳出for循环
+					}
+				}
+				if(!flag){		//当邮件地址没有添加
+					sendform.recievepo.value=s+","+email;
+				}
+			}else{
+				sendform.recievepo.value=email;	//添加邮件地址到“收件人”文本框
+			}
+		}
+	}
+	</script>
+		<script language="javascript">
+	//文字加粗
+	function bold(){
+		var sText = oEditor.document.selection.createRange();
+		if(sText!=""){
+			oEditor.document.execCommand("bold");
+		}
+	}
+	//设置文字为斜体
+	function italic(){
+		var sText = oEditor.document.selection.createRange();
+		if(sText!=""){
+			oEditor.document.execCommand("italic");
+		}
+	}
+	//设置文字下划线
+	function underline(){
+		var sText = oEditor.document.selection.createRange();
+		if(sText!=""){
+			oEditor.document.execCommand("underline");
+		}
+	}
+	//设置文字居左
+	function left(){
+		var sText = oEditor.document.selection.createRange();
+		if(sText!=""){
+			oEditor.document.execCommand("justifyLeft");
+		}
+	}
+	//设置文字居中
+	function center(){
+		var sText = oEditor.document.selection.createRange();
+		if(sText!=""){
+			oEditor.document.execCommand("justifyCenter");
+		}
+	}
+	 //设置文字居右
+	function right(){
+		var sText = oEditor.document.selection.createRange();
+		if(sText!=""){
+			oEditor.document.execCommand("justifyRight");
+		}
+	} 
+	//设置文字字号  
+	function txtFontSize(size){
+		var sText = oEditor.document.selection.createRange();
+		if(sText!=""){
+			oEditor.document.execCommand("fontsize","",size);
+		}
+	}
+	//设置文字的字体
+	function txtFont(inFont){
+		var sText = oEditor.document.selection.createRange();
+		if(sText!=""){
+			oEditor.document.execCommand("FontName",true,inFont);
+		}
+	} 
+	//设置文字颜色               
+	function txtColor(color){
+		var sText = oEditor.document.selection.createRange();
+		if(sText!=""){
+			sText.pasteHTML("<font color='"+color+"'>"+sText.text+"</font>");
+		}
+	}
+	function document.onreadystatechange(){
+		oEditor.document.designMode="on";
+	}
+	</script>
+	</head>
+
+	<body>
+		<table width="100%" height="530" border="0" align="center"
+			cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+			<tr>
+
+				<td valign="top" class="tableBorder">
+					<table width="100%" height="100%" border="0" cellpadding="0"
+						cellspacing="0">
+						<tr>
+							<td width="4%" height="33" background="images/main_title.gif">&nbsp;
+								
+							</td>
+							<td width="96%" background="images/main_title.gif"
+								class="word_orange">
+								当前位置：发件箱 &gt; 写信 &gt;&gt;
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center" valign="top">
+								<form action="sendMailSuccess.html" method="post"
+									name="sendform">
+									<table width="100%" border="0" align="center" cellpadding="0"
+										cellspacing="0">
+										<tr>
+											<td valign="top" background="images/center_b.gif"
+												style="background-repeat: no-repeat; background-position: bottom"
+												class="tableBorder">
+												<table width="96%" border="0" align="center" cellpadding="0"
+													cellspacing="0">
+													<tr>
+														<td height="23" align="center">&nbsp;
+															
+														</td>
+														<td width="58%" height="23" align="center">&nbsp;
+															
+														</td>
+														<td width="22%" align="left">&nbsp;
+															
+														</td>
+													</tr>
+													<tr>
+														<td height="28" align="center">
+															发件人：
+														</td>
+														<td colspan="2" align="left">
+															<input name="sendpo" type="text" id="addresser"
+																title="发件人" value="" size="56" />
+														</td>
+													</tr>
+													<tr>
+														<td width="20%" height="55" align="center">
+															收件人：
+														</td>
+														<td colspan="2" align="left">
+															<input name="recievepo" type="text" id="recievepo"
+																title="收件人" value="" size="56" />
+														</td>
+													</tr>
+													<tr>
+														<td height="28" align="center">
+															主&nbsp;&nbsp;题：
+														</td>
+														<td colspan="2" align="left">
+															<input name="mailtitle" type="text" id="title"
+																title="邮件主题" size="56">
+														</td>
+													</tr>
+													<tr>
+														<td height="28" align="center">
+															附件 1：
+														</td>
+														<td colspan="2" align="left">
+															<input name="Submit3" type="file" value="上传附件">
+														</td>
+													</tr>
+													<tr>
+														<td height="28" align="center">
+															附件 2：
+														</td>
+														<td colspan="2" align="left">
+															<input name="Submit32" type="file" value="上传附件1">
+														</td>
+													</tr>
+													<tr>
+														<td height="30" align="center">&nbsp;
+															
+														</td>
+														<td colspan="2" align="left">
+															<table width="100%" height="25" border="0"
+																cellpadding="-2" cellspacing="-2">
+																<tr>
+																	<td width="32%">
+																		<img src="images/UBB/B.gif" width="16" height="14"
+																			onClick="bold()">
+																		<img src="images/UBB/I.gif" width="16" height="14"
+																			onClick="italic()">
+																		<img src="images/UBB/U.gif" width="16" height="14"
+																			onClick="underline()">
+																		<img src="images/UBB/left.gif" width="14" height="14"
+																			onClick="left()">
+																		<img src="images/UBB/center.gif" width="14"
+																			height="14" onClick="center()">
+																		<img src="images/UBB/right.gif" width="14" height="14"
+																			onClick="right()">
+																	</td>
+																	<td width="68%">
+																		字体
+																		<select name="font" class="wenbenkuang" id="font"
+																			onChange="txtFont(this.options[this.selectedIndex].value)">
+																			<option value="宋体" selected>
+																				宋体
+																			</option>
+																			<option value="黑体">
+																				黑体
+																			</option>
+																			<option value="隶书">
+																				隶书
+																			</option>
+																			<option value="华文行楷">
+																				行楷
+																			</option>
+																			<option value="楷体_GB2312">
+																				行楷
+																			</option>
+																		</select>
+																		字号
+																		<select name="size" class="wenbenkuang"
+																			onChange="txtFontSize(this.options[this.selectedIndex].value)">
+																			<option value=1>
+																				1
+																			</option>
+																			<option value=2>
+																				2
+																			</option>
+																			<option value=3 selected>
+																				3
+																			</option>
+																			<option value=4>
+																				4
+																			</option>
+																			<option value="5">
+																				5
+																			</option>
+																			<option value="6">
+																				6
+																			</option>
+																			<option value="7">
+																				7
+																			</option>
+																		</select>
+																		<select
+																			onChange="txtColor(this.options[this.selectedIndex].value)"
+																			name="color" size="1" class="wenbenkuang" id="color">
+																			<option selected value="#000000">
+																				默认颜色
+																			</option>
+																			<option style="color: #FF0000" value="#FF0000">
+																				红色热情
+																			</option>
+																			<option style="color: #0000FF" value="#0000ff">
+																				蓝色开朗
+																			</option>
+																			<option style="color: #ff00ff" value="#ff00ff">
+																				桃色浪漫
+																			</option>
+																			<option style="color: #009900" value="#009900">
+																				绿色青春
+																			</option>
+																			<option style="color: #009999" value="#009999">
+																				青色清爽
+																			</option>
+																			<option style="color: #990099" value="#990099">
+																				紫色拘谨
+																			</option>
+																			<option style="color: #990000" value="#990000">
+																				暗夜兴奋
+																			</option>
+																			<option style="color: #000099" value="#000099">
+																				深蓝忧郁
+																			</option>
+																			<option style="color: #999900" value="#999900">
+																				卡其制服
+																			</option>
+																			<option style="color: #ff9900" value="#ff9900">
+																				镏金岁月
+																			</option>
+																			<option style="color: #0099ff" value="#0099ff">
+																				湖波荡漾
+																			</option>
+																			<option style="color: #9900ff" value="#9900ff">
+																				发亮蓝紫
+																			</option>
+																			<option style="color: #ff0099" value="#ff0099">
+																				爱的暗示
+																			</option>
+																			<option style="color: #006600" value="#006600">
+																				墨绿深沉
+																			</option>
+																			<option style="color: #999999" value="#999999">
+																				烟雨蒙蒙
+																			</option>
+																		</select>
+																	</td>
+																</tr>
+
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td height="86" align="center">
+															内&nbsp;&nbsp;容：
+														</td>
+														<td colspan="2" align="left">
+															<textarea name="mailcount" rows="10" cols="44"></textarea>
+														</td>
+													</tr>
+													<tr>
+														<td height="32" align="center">
+															&nbsp;
+															<input type="hidden" name="content" title="邮件内容">
+														</td>
+														<td height="23" align="center">
+															<input name="Submit" type="submit" class="btn_grey"
+																value="发送">
+															&nbsp;
+															<input name="Submit2" type="reset" class="btn_grey"
+																value="重置">
+															&nbsp;
+														</td>
+														<td align="left"></td>
+													</tr>
+												</table>
+											</td>
+											<td background="images/title.jpg">&nbsp;
+												
+											</td>
+											<td width="164" height="469" align="right" valign="top"
+												background="Images/left_bg.gif" class="tableBorder">
+												<img src="images/addressList_title.gif" width="163"
+													height="33">
+												<!-----------------开始显示通讯录信息-------------------------------------------------->
+												<table width="100%" height="40" border="0" cellpadding="0"
+													cellspacing="0">
+								
+
+															<tr>
+																<td height="9pt" align="left">
+																	<a
+																		href="Javascript:ShowTR('img1',OpenRep1)">
+																		<img src="images/jia.gif" border="0" alt="展开"
+																			id="img1" align="top" />家人</a>
+																</td>
+															</tr>
+
+															<tr id="OpenRep1" style="display: none;">
+																<td colspan="6">
+																	<table width="100%" border="0" cellspacing="0"
+																		cellpadding="0">
+																		<tr>
+																			<td height="25" align="center">
+																				<table width="78%" border="0" cellspacing="0"
+																					cellpadding="0">
+																					
+																				
+																					<tr onMouseOver="this.style.background='#F7F7F7'"
+																						onMouseOut="this.style.background=''"
+																						height="25px">
+
+																						<td width="17%" class="tableBorder_b" align="left">
+																							<img src="images/folder.gif" width="16"
+																								height="16" border="0">
+																						</td>
+
+																						<td width="83%" class="tableBorder_b">
+																							<a href="javascript:add('邮箱地址');">姓名</a>
+																						</td>
+																					</tr>
+																				
+																					
+																				</table>
+																			</td>
+																		</tr>
+																	</table>
+																</td>
+															</tr>
+													
+												</table>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
